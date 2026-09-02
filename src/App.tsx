@@ -266,26 +266,6 @@ export default function App() {
     }
   ];
 
-  // Instagram Feed Photos
-  const instagramFeed = [
-    {
-      url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600",
-      caption: "Praia do Francês • O mar dos seus sonhos, o cheirinho que você ama."
-    },
-    {
-      url: "https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&fit=crop&q=80&w=600",
-      caption: "Roupas limpas, macias e perfumadas com dosagem profissional."
-    },
-    {
-      url: "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&q=80&w=600",
-      caption: "Toalhas e lençóis fofos como você nunca viu!"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&q=80&w=600",
-      caption: "Espaço climatizado, moderno e com Wi-Fi 24 horas."
-    }
-  ];
-
   const faqs = [
     {
       q: "Como funciona o autoatendimento 24h?",
@@ -1501,65 +1481,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 15. GALERIA DO FEED DO INSTAGRAM (Auto Scroll Horizontal) */}
-      <section id="instagram-feed" className="py-20 bg-white border-t border-slate-100 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-          <div className="text-center max-w-3xl mx-auto">
-            <span className="text-[#2d3a82] text-xs font-semibold uppercase tracking-widest block mb-2">Siga Nosso Perfil</span>
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#2d3a82] mb-4">Galeria do Instagram</h2>
-            <p className="text-slate-600 text-base">
-              Acompanhe novidades, dicas e a energia da Praia do Francês no nosso feed.
-            </p>
-            <a 
-              href="https://www.instagram.com/lavanderiamardecheiroofc" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-[#2563eb] font-semibold text-sm hover:underline"
-            >
-              <Instagram className="w-4 h-4 text-pink-500" />
-              <span>@lavanderiamardecheiroofc</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Horizontal Marquee Track for Instagram Feed (Side-by-side Auto Moving) */}
-        <div className="relative w-full overflow-hidden py-4">
-          {/* Edge gradient masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-20 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-20 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none"></div>
-
-          <div className="flex animate-marquee-medium gap-6 px-4">
-            {[...instagramFeed, ...instagramFeed, ...instagramFeed].map((post, idx) => (
-              <a 
-                key={idx}
-                href="https://www.instagram.com/lavanderiamardecheiroofc" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-72 sm:w-80 shrink-0 group rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 relative shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
-              >
-                <div className="relative aspect-square overflow-hidden">
-                  <img 
-                    src={post.url} 
-                    alt={post.caption} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
-                    <Instagram className="w-8 h-8 text-white drop-shadow" />
-                  </div>
-                </div>
-                <div className="p-4 bg-white flex-1 flex flex-col justify-between">
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">{post.caption}</p>
-                  <span className="text-[11px] text-sky-600 font-semibold mt-2 flex items-center gap-1">
-                    Ver no Instagram <ArrowRight className="w-3 h-3" />
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 16. FAQ ACCORDION (Perguntas Frequentes) */}
+      {/* FAQ ACCORDION (Perguntas Frequentes) */}
       <section id="faq" className="py-20 bg-[#f8fafc]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
