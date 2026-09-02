@@ -1,0 +1,8 @@
+{
+  "name": "Remix Mar de Cheiro Lavanderia 24h",
+  "description": "Lavanderia premium 24h na Praia do Francês com autoatendimento, serviço assistido, planos e agendamento de coleta.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
