@@ -13,6 +13,7 @@ import {
 import QuizMinigame from './components/QuizMinigame';
 import UnitPhotoSlider, { UnitPhoto } from './components/UnitPhotoSlider';
 import NovaUnidadeBarraVideo from './components/NovaUnidadeBarraVideo';
+import FloatingParticles from './components/FloatingParticles';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -147,10 +148,10 @@ export default function App() {
 
   // Calculate simulated price
   const getSimPrice = () => {
-    if (simMode === 'terca') return 16.90;
+    if (simMode === 'terca') return 15.90;
     if (simMode === 'corujao') return 14.90;
-    if (simMode === 'ouro') return 289.00;
-    if (simMode === 'diamante') return 499.00;
+    if (simMode === 'ouro') return 169.00;
+    if (simMode === 'diamante') return 318.00;
     return simService === 'combo' ? 32.90 : 18.90;
   };
 
@@ -290,7 +291,8 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-slate-700 bg-[#f8fafc]">
+    <div className="min-h-screen flex flex-col font-sans text-slate-700 bg-[#f8fafc] relative">
+      <FloatingParticles />
       
       {/* 1. BARRA DE ANÚNCIOS ROTATIVA (Marquee Superior) */}
       <div id="top-marquee" className="bg-[#2d3a82] text-white py-2 px-4 text-xs md:text-sm font-medium overflow-hidden relative border-b border-white/10 z-50">
@@ -1053,9 +1055,9 @@ export default function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Card 1: Lavagem Avulsa */}
-            <div className="bg-[#f8fafc] border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div className="bg-[#f8fafc] border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
               <div>
                 <span className="text-xs uppercase tracking-widest text-slate-500 font-semibold block mb-2">Avulso Diário</span>
                 <h3 className="font-serif text-2xl font-bold text-[#2d3a82] mb-4">Lavagem ou Secagem</h3>
@@ -1079,7 +1081,7 @@ export default function App() {
             </div>
 
             {/* Card 2: Terça Promocional */}
-            <div className="bg-gradient-to-b from-[#2d3a82] to-[#1e293b] text-white border-2 border-sky-400 rounded-3xl p-8 shadow-xl relative flex flex-col justify-between transform md:-translate-y-2">
+            <div className="bg-gradient-to-b from-[#2d3a82] to-[#1e293b] text-white border-2 border-sky-400 rounded-3xl p-6 sm:p-8 shadow-xl relative flex flex-col justify-between">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-sky-400 text-slate-950 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow">
                 Mais Popular • Terças
               </div>
@@ -1087,7 +1089,7 @@ export default function App() {
                 <span className="text-xs uppercase tracking-widest text-sky-300 font-semibold block mb-2">Toda Terça-Feira</span>
                 <h3 className="font-serif text-2xl font-bold mb-4">Tarifa Promocional</h3>
                 <div className="text-4xl font-bold text-sky-400 mb-6">
-                  R$ 16,90 <span className="text-xs text-slate-300 font-normal">/ ciclo</span>
+                  R$ 15,90 <span className="text-xs text-slate-300 font-normal">/ ciclo</span>
                 </div>
                 <ul className="space-y-3 text-sm text-slate-200 mb-8">
                   <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0" /> Desconto especial toda terça-feira</li>
@@ -1107,12 +1109,12 @@ export default function App() {
             </div>
 
             {/* Card 3: Plano Ouro 10 Ciclos */}
-            <div className="bg-[#f8fafc] border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div className="bg-[#f8fafc] border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
               <div>
-                <span className="text-xs uppercase tracking-widest text-amber-600 font-semibold block mb-2">Assinatura Mensal</span>
-                <h3 className="font-serif text-2xl font-bold text-[#2d3a82] mb-4">Plano Ouro (10 Ciclos)</h3>
+                <span className="text-xs uppercase tracking-widest text-amber-600 font-semibold block mb-2">Pacote 10 Ciclos</span>
+                <h3 className="font-serif text-2xl font-bold text-[#2d3a82] mb-4">Plano Ouro (10x)</h3>
                 <div className="text-3xl font-bold text-[#2563eb] mb-6">
-                  R$ 289,00 <span className="text-xs text-slate-500 font-normal">/ mês</span>
+                  R$ 169,00 <span className="text-xs text-slate-500 font-normal">/ 10 ciclos</span>
                 </div>
                 <ul className="space-y-3 text-sm text-slate-600 mb-8">
                   <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> 10 ciclos completos de lavagem/secagem</li>
@@ -1127,6 +1129,30 @@ export default function App() {
                 className="w-full bg-[#2d3a82] hover:bg-[#20295d] text-white py-3 rounded-full font-semibold text-sm text-center transition-all shadow-sm block"
               >
                 Assinar Plano Ouro
+              </a>
+            </div>
+
+            {/* Card 4: Plano Diamante 20 Ciclos */}
+            <div className="bg-[#f8fafc] border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                <span className="text-xs uppercase tracking-widest text-cyan-600 font-semibold block mb-2">Pacote 20 Ciclos</span>
+                <h3 className="font-serif text-2xl font-bold text-[#2d3a82] mb-4">Plano Diamante (20x)</h3>
+                <div className="text-3xl font-bold text-[#2563eb] mb-6">
+                  R$ 318,00 <span className="text-xs text-slate-500 font-normal">/ 20 ciclos</span>
+                </div>
+                <ul className="space-y-3 text-sm text-slate-600 mb-8">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> 20 ciclos completos de alta performance</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> Máxima economia para famílias</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" /> Prioridade total nas unidades 24h</li>
+                </ul>
+              </div>
+              <a 
+                href="https://wa.me/5521951118800" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full bg-[#2d3a82] hover:bg-[#20295d] text-white py-3 rounded-full font-semibold text-sm text-center transition-all shadow-sm block"
+              >
+                Assinar Plano Diamante
               </a>
             </div>
           </div>
